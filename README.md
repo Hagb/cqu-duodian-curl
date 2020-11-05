@@ -80,6 +80,8 @@ duodian_logout
 
 `duodian_login` 第三个参数置为 `1` 的登陆可与另一地址上 drcom 或 `duodian_login` 第三个参数留空的登陆共存。
 
+通过这种办法可以实现一号双拨，经测试能获得双倍网速。
+
 ### 登陆安全性
 
 可以使用 https 进行登陆以防止中间人攻击，此时可以通过重大哆点的证书（[www-doctorcom-com.pem](www-doctorcom-com.pem)）进行验证。
@@ -92,6 +94,6 @@ duodian_logout
 
 目前未充分测试过。
 
-将 `drcom_url_args` 变量置为老校区内网 dns 服务器解析的 `dr.com` 的 ip 后，可以进行登陆、注销，但返回值可能不正确。
+将 `drcom_url_args` 变量设为老校区内网 dns 服务器解析的 `dr.com` 的 ip 后，可以进行登陆、注销，但返回值可能不正确。
 
 未知双终端登陆在老校区是否有效。
