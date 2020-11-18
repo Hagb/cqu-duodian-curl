@@ -1,4 +1,4 @@
-#!/bin/env ash
+#!/usr/bin/env ash
 login_success_text="$(cat login_success_text.txt)"
 logined_text="$(cat login_status_text.txt)"
 logout_success_text="Msg=14"
