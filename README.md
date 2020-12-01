@@ -31,7 +31,7 @@ duodian_login 201xxxxx password || echo Login failed!
 双终端登陆示例：
 
 ``` bash
-source ./cqu-duodian-curl.sh
+. ./cqu-duodian-curl.sh
 duodian_login 201xxxxx password 1 || echo Login failed!
 ```
 
