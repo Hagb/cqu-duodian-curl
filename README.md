@@ -2,11 +2,15 @@
 
 重庆大学校园网哆点登陆脚本，基于 curl 和 (b)ash。
 
-目前仅在虎溪校区测试过。
+在虎溪校区全部功能正常工作。
+
+老校区登陆功能（`duodian_login`）正常工作且返回正确返回值，注销功能（`duodian_logout`）工作但不返回正确返回值，判断是否登陆（`is_duodian_logined`）不工作。（help wanted）
 
 ## 用法
 
 先用 `. ./cqu-duodian-curl.sh` 导入脚本，之后可以调用以下相应函数。
+
+老校区使用请在导入脚本后运行`drcom_url_args="$drcom_url_args_old"`。
 
 以下操作均会把哆点登陆服务器返回的网页保存至 `return_html` 变量（可用于调试、登陆失败时进一步解析失败原因等目的）。
 
@@ -39,7 +43,7 @@ duodian_login 201xxxxx password 1 || echo Login failed!
 ```
 用法：is_duodian_logined
 
-查询登陆状态
+查询登陆状态（老校区暂不可用）
 
 返回值：
     0(真) 登陆状态
@@ -67,6 +71,7 @@ fi
 返回值：
     0(真) 成功注销
     1(假) 未成功注销（可能由于调用前已处于未登陆状态）
+该返回值在老校区不正确
 ```
 
 示例：
@@ -101,7 +106,7 @@ how to fix it, please visit the web page mentioned above.
 
 这是由于默认安全策略不允许使用学校哆点的证书。不过 OpenWrt 上默认策略无此问题。
 
-导入脚本后可通过将 `drcom_url_args` 变量置为 `10.254.7.4`（虎溪校区）来改成 http 登陆绕过该问题（但安全性降低了）。
+导入脚本后可通过将 `drcom_url_args` 变量置为 `10.254.7.4`（虎溪校区）或 `202.202.0.163`（老校区）来改成 http 登陆绕过该问题（但安全性降低了）。
 
 ### 双终端
 
@@ -113,14 +118,4 @@ how to fix it, please visit the web page mentioned above.
 
 可以使用 https 进行登陆以防止中间人攻击，此时可以通过重大哆点的证书（[www-doctorcom-com.pem](www-doctorcom-com.pem)）进行验证。
 
-如果需要使用明文 http，可以将在导入脚本后 `drcom_url_args` 变量置为 `10.254.7.4`（虎溪校区）。
-
-### 老校区使用
-
-（TODO）
-
-目前未充分测试过。
-
-导入脚本后将 `drcom_url_args` 变量设为老校区内网 dns 服务器解析的 `dr.com` 的 ip 后，可以进行登陆、注销，但返回值可能不正确。
-
-未知双终端登陆在老校区是否有效。
+如果需要使用明文 http，可以将在导入脚本后 `drcom_url_args` 变量置为 `10.254.7.4`（虎溪校区）或 `202.202.0.163`（老校区）。
