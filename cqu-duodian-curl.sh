@@ -1,5 +1,5 @@
 #!/usr/bin/env ash
-login_success_text="$(cat login_success_text.txt)"
+login_success_text="UID"
 logined_text="$(cat login_status_text.txt)"
 logout_success_text="Msg=14"
 drcom_url_args="--resolve www.doctorcom.com:443:10.254.7.4 --cacert www-doctorcom-com.pem https://www.doctorcom.com"
