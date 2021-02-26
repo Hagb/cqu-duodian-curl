@@ -23,12 +23,22 @@
 返回值：
     0(真) 登陆成功
     1(假) 登陆失败
+
+会读取的 shell 变量：
+    ip    传给验证服务器的 ip 地址，作用不详，建议使用与本设备的重大内网 ip
+    mac   传给验证服务器的 mac 地址，验证服务器会记录下此 mac 地址
+
+
+会写入的 shell 变量：
+    return_html  登陆服务器返回的网页内容
+    
 ```
 
 示例：
 
 ``` bash
 . ./cqu-duodian-curl.sh
+ip=$()
 duodian_login 201xxxxx password || echo Login failed!
 ```
 
