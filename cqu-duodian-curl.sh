@@ -2,8 +2,8 @@
 login_success_text="UID"
 logined_text="$(cat login_status_text.txt)"
 logout_success_text="Msg=14"
-drcom_url_args="--resolve www.doctorcom.com:443:10.254.7.4 --cacert www-doctorcom-com.pem https://www.doctorcom.com"
-drcom_url_args_old="--resolve www.doctorcom.com:443:202.202.0.163 --cacert www-doctorcom-com.pem https://www.doctorcom.com"
+drcom_url_args="--ciphers DEFAULT@SECLEVEL=1 --resolve www.doctorcom.com:443:10.254.7.4 --cacert www-doctorcom-com.pem https://www.doctorcom.com"
+drcom_url_args_old="--ciphers DEFAULT@SECLEVEL=1 --resolve www.doctorcom.com:443:202.202.0.163 --cacert www-doctorcom-com.pem https://www.doctorcom.com"
 
 str_in(){
     case "$2" in

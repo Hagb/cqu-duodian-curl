@@ -91,23 +91,6 @@ duodian_logout
 
 但如果某些原因下线（如被自己别处的登陆挤掉，或者虎溪工作日凌晨断网），则需重新登陆。
 
-### `SSL certificate problem: EE certificate key too weak`
-
-运行时报错：
-
-```
-curl: (60) SSL certificate problem: EE certificate key too weak
-More details here: https://curl.haxx.se/docs/sslcerts.html
-
-curl failed to verify the legitimacy of the server and therefore could not
-establish a secure connection to it. To learn more about this situation and
-how to fix it, please visit the web page mentioned above.
-```
-
-这是由于默认安全策略不允许使用学校哆点的证书。不过 OpenWrt 上默认策略无此问题。
-
-导入脚本后可通过将 `drcom_url_args` 变量置为 `10.254.7.4`（虎溪校区）或 `202.202.0.163`（老校区）来改成 http 登陆绕过该问题（但安全性降低了）。
-
 ### 双终端
 
 `duodian_login` 第三个参数置为 `1` 的登陆可与另一地址上 drcom 或 `duodian_login` 第三个参数留空的登陆共存。
